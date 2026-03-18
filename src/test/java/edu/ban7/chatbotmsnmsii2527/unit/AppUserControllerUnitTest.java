@@ -11,7 +11,6 @@ public class AppUserControllerUnitTest {
     @Test
     public void getByNotExistingId_shouldReturn404() {
         AppUserController controller = new AppUserController(new MockAppUserDao());
-
         Assertions.assertEquals(HttpStatus.NOT_FOUND,controller.get(99).getStatusCode());
     }
 
