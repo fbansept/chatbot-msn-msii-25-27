@@ -10,7 +10,7 @@
     </parent>
     <groupId>edu.ban7</groupId>
     <artifactId>chatbot-msn-msii-25-27</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>chatbot-msn-msii-25-27</name>
     <description>chatbot-msn-msii-25-27</description>
     <url/>
