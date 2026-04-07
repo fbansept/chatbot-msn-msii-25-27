@@ -6,8 +6,10 @@ services:
   database:
     image: postgres:18
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      # Note : les credentials de l'image deposé sur dockerhub
+      # dépendent des secrets du repo github (ex : postgres/postgres pour moi)
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
       POSTGRES_DB: db
       TZ: UTC
     ports:
