@@ -30,4 +30,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Build image
-      run: docker image build -t chatbot-msii .
+      run: docker image build -t fbansept/chatbot-msii:latest .
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v4
+      with:
+        username: fbansept
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Push image on dockerhub
+      run: docker push fbansept/chatbot-msii:latest
