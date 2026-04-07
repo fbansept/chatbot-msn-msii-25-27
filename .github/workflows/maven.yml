@@ -29,12 +29,20 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+    - name: Extract version from pom.xml and init variable "VERSION"
+      run: echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+
     - name: Build image
-      run: docker image build -t fbansept/chatbot-msii:latest .
+      run: docker image build -t fbansept/chatbot-msii:${{ env.VERSION }} .
+
+    - name: Tag image as latest
+      run: docker image tag fbansept/chatbot-msii:${{ env.VERSION }} fbansept/chatbot-msii:latest
+
     - name: Log in to Docker Hub
       uses: docker/login-action@v4
       with:
         username: fbansept
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Push image on dockerhub
-      run: docker push fbansept/chatbot-msii:latest
+      run: docker push fbansept/chatbot-msii:${{ env.VERSION }}
