@@ -3,6 +3,7 @@ package edu.ban7.chatbotmsnmsii2527.controller;
 import edu.ban7.chatbotmsnmsii2527.dao.TagDao;
 import edu.ban7.chatbotmsnmsii2527.dto.Question;
 import edu.ban7.chatbotmsnmsii2527.model.Tag;
+import edu.ban7.chatbotmsnmsii2527.security.IsUser;
 import edu.ban7.chatbotmsnmsii2527.service.AiService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,8 @@ public class ChatbotController {
     protected final AiService aiService;
 
     @PostMapping("/ask")
-    public ResponseEntity<String> create(@RequestBody Question question) {
+    @IsUser
+    public ResponseEntity<String> ask(@RequestBody Question question) {
         return new ResponseEntity<>(
                 aiService.askGemini(question.content()),
                 HttpStatus.OK);

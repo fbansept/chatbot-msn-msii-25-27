@@ -2,6 +2,7 @@ package edu.ban7.chatbotmsnmsii2527.controller;
 
 import edu.ban7.chatbotmsnmsii2527.dao.TagDao;
 import edu.ban7.chatbotmsnmsii2527.model.Tag;
+import edu.ban7.chatbotmsnmsii2527.security.IsAdmin;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
+@IsAdmin
 public class TagController {
 
     protected final TagDao tagDao;

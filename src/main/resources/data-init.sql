@@ -1,7 +1,7 @@
-INSERT INTO app_user (email, password, pseudo) VALUES
-        ('a@a', 'root', 'User A'),
-        ('b@b', 'root', 'User B'),
-        ('b@b', 'root', 'User C');
+INSERT INTO app_user (email, password, pseudo, admin) VALUES
+        ('a@a', '$2a$10$Wt8piqncC156t0XbZjwjvu59xy1e8kkM05r6UOCAekHcSigJttyWS', 'User A', true),
+        ('b@b', '$2a$10$Wt8piqncC156t0XbZjwjvu59xy1e8kkM05r6UOCAekHcSigJttyWS', 'User B', false),
+        ('c@c', '$2a$10$Wt8piqncC156t0XbZjwjvu59xy1e8kkM05r6UOCAekHcSigJttyWS', 'User C', false);
 
 INSERT INTO recipe (name, creator_id) VALUES
         ('tarte aux pommes', 1),

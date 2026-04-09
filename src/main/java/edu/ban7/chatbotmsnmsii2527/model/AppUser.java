@@ -34,4 +34,6 @@ public class AppUser {
     @Length(min = 3, max = 50)
     protected String pseudo;
 
+    protected boolean admin;
+
 }
